@@ -39,7 +39,7 @@ export default function InfoZimowe() {
     //console.log(post)
     const listItems = post.map(product =>
         <li key={product.id}>
-            <p> {product.id} </p>
+            <p className='btn btn-primary'> {product.id} </p>
             <p> {product.title.rendered}</p>
             <p> {product.acf.opis}</p>
             <div dangerouslySetInnerHTML={{ __html: product.acf.opis_extra }} />
@@ -50,14 +50,19 @@ export default function InfoZimowe() {
     if (!post) return null;
     return (
 
-        <div>
-            {/* <h1>{post[0].id}</h1>
+        <div className='container-fluid'>
+            <div>
+                <div className='col'>
+                    {/* <h1>{post[0].id}</h1>
             <p>{post[0].title.rendered}</p>
-            <p>{post[0].acf.opis}</p>
+            <p>{post[0].acf.op>is}</p>
             <p>opublikowano: {post[0].date}</p>
             <div dangerouslySetInnerHTML={{ __html: post[0].acf.opis_extra }} /> */}
-            test
-            <ul>{listItems}</ul>
+                    test
+
+                    <ul>{listItems}</ul>
+                </div>
+            </div>
         </div>
     );
 
