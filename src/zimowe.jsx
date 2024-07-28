@@ -40,17 +40,29 @@ export default function InfoZimowe() {
     const listItems = post.map(product =>
         <li key={product.id}>
             {/* <p> {product.id} </p> */}
-            <h1 className='text-primary'> {product.title.rendered}</h1>
+            <div className='row'>
+                <h1 className='text-primary'> {product.title.rendered}</h1>
+                <p>{product.date.substring(0, 10)}</p>
+            </div>
+            <div className='row'>
+                <div className='col'>
+                    <img alt={product.acf.zdj.id}
+                        src={product.acf.zdj.url}
+                        width="500" height="300"
 
-            <p>{product.date.substring(0, 10)}</p>
-            <p> {product.acf.opis}</p>
-            <img alt={product.acf.zdj.id}
-                src={product.acf.zdj.url}
-                width="500" height="300"
+                    />
+                </div>
+                <div className='col'>
+                    <p> {product.acf.opis}</p>
+                </div>
 
-            />
-            {/* <p>{product.acf.zdj}</p> */}
-            {/* <div dangerouslySetInnerHTML={{ __html: product.acf.opis_extra }} /> */}
+
+
+
+
+                {/* <p>{product.acf.zdj}</p> */}
+                {/* <div dangerouslySetInnerHTML={{ __html: product.acf.opis_extra }} /> */}
+            </div>
         </li>
     );
 
