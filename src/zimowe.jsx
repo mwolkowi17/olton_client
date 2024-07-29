@@ -37,6 +37,15 @@ export default function InfoZimowe() {
     // );
 
     console.log(post)
+
+
+    function handleClick(number) {
+        alert('Czuję się kliknięty!');
+        setPost(post.filter(item => (item.id == number)))
+
+    }
+
+
     const listItems = post.map(product =>
         <li key={product.id}>
             {/* <p> {product.id} </p> */}
@@ -54,14 +63,8 @@ export default function InfoZimowe() {
                 </div>
                 <div className='col' id='opis'>
                     <p> {product.acf.opis}</p>
+                    <button onClick={() => handleClick(product.id)}>Więcej</button>
                 </div>
-
-
-
-
-
-                {/* <p>{product.acf.zdj}</p> */}
-                {/* <div dangerouslySetInnerHTML={{ __html: product.acf.opis_extra }} /> */}
             </div>
         </li>
     );
@@ -73,13 +76,6 @@ export default function InfoZimowe() {
         <div className='container pt-3'>
             <div className='row' >
                 <div className='col'>
-                    {/* <h1>{post[0].id}</h1>
-            <p>{post[0].title.rendered}</p>
-            <p>{post[0].acf.op>is}</p>
-            <p>opublikowano: {post[0].date}</p>
-            <div dangerouslySetInnerHTML={{ __html: post[0].acf.opis_extra }} /> */}
-
-
                     <ul>{listItems}</ul>
                 </div>
             </div>
