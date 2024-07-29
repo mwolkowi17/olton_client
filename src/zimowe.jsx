@@ -41,7 +41,7 @@ export default function InfoZimowe() {
         <li key={product.id}>
             {/* <p> {product.id} </p> */}
             <div className='row'>
-                <h1 className='text-primary'> {product.title.rendered}</h1>
+                <h1 id='wpis_title'> {product.title.rendered}</h1>
                 <p>{product.date.substring(0, 10)}</p>
             </div>
             <div className='row'>
@@ -52,7 +52,7 @@ export default function InfoZimowe() {
 
                     />
                 </div>
-                <div className='col'>
+                <div className='col' id='opis'>
                     <p> {product.acf.opis}</p>
                 </div>
 
@@ -71,14 +71,14 @@ export default function InfoZimowe() {
     return (
 
         <div className='container pt-3'>
-            <div className='row'>
+            <div className='row' >
                 <div className='col'>
                     {/* <h1>{post[0].id}</h1>
             <p>{post[0].title.rendered}</p>
             <p>{post[0].acf.op>is}</p>
             <p>opublikowano: {post[0].date}</p>
             <div dangerouslySetInnerHTML={{ __html: post[0].acf.opis_extra }} /> */}
-                    test
+
 
                     <ul>{listItems}</ul>
                 </div>

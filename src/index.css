@@ -69,3 +69,22 @@ button:focus-visible {
 ul {
   list-style-type: none;
 }
+
+#wpis {
+  margin-bottom: 120px;
+}
+
+li {
+  margin-bottom: 60px;
+}
+
+#wpis_title {
+  font-family: "Nunito";
+  color: rgba(15, 42, 67, 1);
+}
+
+#opis {
+  font-family: "Roboto";
+  font-size: 20px;
+  color: rgba(15, 42, 67, 1);
+}
