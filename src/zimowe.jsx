@@ -1,17 +1,19 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 // Make a request for a user with a given ID
 
 const baseURL = 'http://localhost/school1//wp-json/wp/v2/wyjazd_zimowy?acf_format=standard'
 export default function InfoZimowe() {
 
-    const [post, setPost] = useState([]);
+    const [post, setPost] = useState([])
+    let elementRef = useRef(null)
 
     useEffect(() => {
         async function getInfo() {
             await axios.get(baseURL).then((response) => {
                 setPost(response.data);
+
                 //console.log(response.data)
 
             })
@@ -36,13 +38,26 @@ export default function InfoZimowe() {
     //     </li>
     // );
 
-    console.log(post)
 
 
+    //console.log(oldPosts)
     function handleClick(number) {
-        alert('Czuję się kliknięty!');
+        elementRef.current = post
         setPost(post.filter(item => (item.id == number)))
+        const el = document.getElementsByClassName('button_normal')[0]
+        const el2 = document.getElementsByClassName('button_wstecz')[0]
+        el.style.visibility = 'hidden'
+        el2.style.visibility = 'visible'
 
+    }
+
+    function handleClickBack() {
+        setPost(elementRef.current)
+        console.log(elementRef.current)
+        const el = document.getElementsByClassName('button_normal')[0]
+        const el2 = document.getElementsByClassName('button_wstecz')[0]
+        el.style.visibility = 'visible'
+        el2.style.visibility = 'hidden'
     }
 
 
@@ -63,7 +78,8 @@ export default function InfoZimowe() {
                 </div>
                 <div className='col' id='opis'>
                     <p> {product.acf.opis}</p>
-                    <button onClick={() => handleClick(product.id)}>Więcej</button>
+                    <button className='button_normal' onClick={() => handleClick(product.id)}>Więcej</button>
+                    <button className='button_wstecz' onClick={() => handleClickBack()}>Wstecz</button>
                 </div>
             </div>
         </li>
