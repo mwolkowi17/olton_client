@@ -44,10 +44,13 @@ export default function InfoZimowe() {
     function handleClick(number) {
         elementRef.current = post
         setPost(post.filter(item => (item.id == number)))
-        const el = document.getElementsByClassName('button_normal')[0]
-        const el2 = document.getElementsByClassName('button_wstecz')[0]
-        el.style.visibility = 'hidden'
-        el2.style.visibility = 'visible'
+        for (let n = 0; n <= post.length - 1; n++) {
+            const el = document.getElementsByClassName('button_normal')[n]
+            const el2 = document.getElementsByClassName('button_wstecz')[n]
+            el.style.visibility = 'hidden'
+            el2.style.visibility = 'visible'
+            console.log(el)
+        }
 
     }
 
