@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
 
-// Make a request for a user with a given ID
 
 const baseURL = 'http://localhost/school1//wp-json/wp/v2/wyjazd_zimowy?acf_format=standard'
 export default function InfoZimowe() {
@@ -14,8 +13,6 @@ export default function InfoZimowe() {
             await axios.get(baseURL).then((response) => {
                 setPost(response.data);
 
-                //console.log(response.data)
-
             })
                 .catch(function (error) {
                     // handle error
@@ -23,7 +20,6 @@ export default function InfoZimowe() {
                 })
                 .then(function () {
                     // always executed
-                    //console.log(post)
                 });
         }
         getInfo()
@@ -31,42 +27,29 @@ export default function InfoZimowe() {
 
     }, [])
 
-
-    // const listItems = post.map(product =>
-    //     <li key={product.id}>
-    //         {product.title}
-    //     </li>
-    // );
-
-
-
-    //console.log(oldPosts)
     function handleClick(number) {
         elementRef.current = post
         setPost(post.filter(item => (item.id == number)))
         for (let n = 0; n <= post.length - 1; n++) {
             const el = document.getElementsByClassName('button_normal')[n]
             const el2 = document.getElementsByClassName('button_wstecz')[n]
-            el.style.visibility = 'hidden'
-            el2.style.visibility = 'visible'
-            console.log(el)
+            el.style.display = 'none'
+            el2.style.display = "inline"
         }
 
     }
 
     function handleClickBack() {
         setPost(elementRef.current)
-        console.log(elementRef.current)
         const el = document.getElementsByClassName('button_normal')[0]
         const el2 = document.getElementsByClassName('button_wstecz')[0]
-        el.style.visibility = 'visible'
-        el2.style.visibility = 'hidden'
+        el.style.display = 'inline'
+        el2.style.display = "none"
     }
 
 
     const listItems = post.map(product =>
         <li key={product.id}>
-            {/* <p> {product.id} </p> */}
             <div className='row'>
                 <h1 id='wpis_title'> {product.title.rendered}</h1>
                 <p>{product.date.substring(0, 10)}</p>
@@ -76,7 +59,6 @@ export default function InfoZimowe() {
                     <img alt={product.acf.zdj.id}
                         src={product.acf.zdj.url}
                         width="500" height="300"
-
                     />
                 </div>
                 <div className='col' id='opis'>
@@ -88,7 +70,6 @@ export default function InfoZimowe() {
         </li>
     );
 
-    //console.log(post)
     if (!post) return null;
     return (
 

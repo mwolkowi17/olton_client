@@ -90,5 +90,6 @@ li {
 }
 
 .button_wstecz {
-  visibility: hidden;
+  /* visibility: hidden; */
+  display: none;
 }
