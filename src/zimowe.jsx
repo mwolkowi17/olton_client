@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { MyButton } from './mybutton.jsx'
 
 
+
 const baseURL = 'http://localhost/school1//wp-json/wp/v2/wyjazd_zimowy?acf_format=standard'
 export default function InfoZimowe() {
 
