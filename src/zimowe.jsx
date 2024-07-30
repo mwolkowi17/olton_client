@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
+import { MyButton } from './mybutton.jsx'
 
 
 const baseURL = 'http://localhost/school1//wp-json/wp/v2/wyjazd_zimowy?acf_format=standard'
@@ -51,7 +52,7 @@ export default function InfoZimowe() {
     const listItems = post.map(product =>
         <li key={product.id}>
             <div className='row'>
-                <h1 id='wpis_title'> {product.title.rendered}</h1>
+                <h1 className='wpis_title'> {product.title.rendered}</h1>
                 <p>{product.date.substring(0, 10)}</p>
             </div>
             <div className='row'>
@@ -61,10 +62,10 @@ export default function InfoZimowe() {
                         width="500" height="300"
                     />
                 </div>
-                <div className='col' id='opis'>
+                <div className='col opis'>
                     <p> {product.acf.opis}</p>
-                    <button className='button_normal' onClick={() => handleClick(product.id)}>Więcej</button>
-                    <button className='button_wstecz' onClick={() => handleClickBack()}>Wstecz</button>
+                    <MyButton znacznik="button_normal" opis='Więciej' onClick={() => handleClick(product.id)} />
+                    <MyButton znacznik='button_wstecz' opis="Wstecz" onClick={() => handleClickBack()} />
                 </div>
             </div>
         </li>

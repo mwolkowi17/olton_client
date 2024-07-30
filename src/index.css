@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* background-color: #242424; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -23,9 +23,9 @@ a:hover {
 }
 
 body {
-  margin: 0;
+  margin: 20px;
   display: flex;
-  place-items: center;
+  /* place-items: center; */
   min-width: 320px;
   min-height: 100vh;
 }
@@ -70,20 +70,20 @@ ul {
   list-style-type: none;
 }
 
-#wpis {
+/* #wpis {
   margin-bottom: 120px;
-}
+} */
 
 li {
   margin-bottom: 60px;
 }
 
-#wpis_title {
+.wpis_title {
   font-family: "Nunito";
   color: rgba(15, 42, 67, 1);
 }
 
-#opis {
+.opis {
   font-family: "Roboto";
   font-size: 20px;
   color: rgba(15, 42, 67, 1);
@@ -92,4 +92,7 @@ li {
 .button_wstecz {
   /* visibility: hidden; */
   display: none;
+}
+#button_display {
+  background-color: #13919b;
 }
