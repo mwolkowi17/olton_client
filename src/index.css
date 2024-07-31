@@ -67,6 +67,9 @@ button:focus-visible {
   }
 }
 ul {
+  list-style-type: disc;
+}
+.lista_postow {
   list-style-type: none;
 }
 

@@ -32,17 +32,21 @@ export default function InfoZimowe() {
     function handleClick(number) {
         elementRef.current = post
         setPost(post.filter(item => (item.id == number)))
+
+
         for (let n = 0; n <= post.length - 1; n++) {
             const el = document.getElementsByClassName('button_normal')[n]
             const el2 = document.getElementsByClassName('button_wstecz')[n]
             const elOpisExtra = document.getElementsByClassName('opisExtra')[n]
             const zdjWyr = document.getElementsByClassName('zdjecieWyrozniajace')[n]
-            const dots = document.getElementsByTagName("ul")
-            console.log(dots)
-            for (let m = 1; m <= dots.length - 1; m++) {
-                dots[m].style.listStyleType = 'disc'
-            }
-            dots.style.listStyleType = 'disc'
+
+
+            // const dots = document.getElementsByTagName("ul")
+            // console.log(dots)
+            // for (let m = 0; m <= dots.length - 1; m++) {
+            //     dots[m].style.listStyleType = 'disc'
+            // }
+            //dots.style.listStyleType = 'disc'
             zdjWyr.style.display = 'none'
             elOpisExtra.style.display = 'block'
             el.style.display = 'none'
@@ -61,10 +65,10 @@ export default function InfoZimowe() {
         const zdjWyr = document.getElementsByClassName('zdjecieWyrozniajace')[0]
         zdjWyr.style.display = 'inline'
         elOpisExtra.style.display = 'none'
-        const dots = document.getElementsByTagName("ul")
-        for (let m = 0; m <= dots.length - 1; m++) {
-            dots[m].style.listStyleType = 'none'
-        }
+        // const dots = document.getElementsByTagName("ul")
+        // for (let m = 0; m <= dots.length - 1; m++) {
+        //     dots[m].style.listStyleType = 'none'
+        // }
         el.style.display = 'inline'
         el2.style.display = "none"
     }
@@ -99,7 +103,7 @@ export default function InfoZimowe() {
         <div className='container pt-3'>
             <div className='row' >
                 <div className='col'>
-                    <ul>{listItems}</ul>
+                    <ul className='lista_postow'>{listItems}</ul>
                 </div>
             </div>
         </div>
