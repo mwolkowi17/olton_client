@@ -35,9 +35,21 @@ export default function InfoZimowe() {
         for (let n = 0; n <= post.length - 1; n++) {
             const el = document.getElementsByClassName('button_normal')[n]
             const el2 = document.getElementsByClassName('button_wstecz')[n]
+            const elOpisExtra = document.getElementsByClassName('opisExtra')[n]
+            const zdjWyr = document.getElementsByClassName('zdjecieWyrozniajace')[n]
+            const dots = document.getElementsByTagName("ul")
+            console.log(dots)
+            for (let m = 1; m <= dots.length - 1; m++) {
+                dots[m].style.listStyleType = 'disc'
+            }
+            dots.style.listStyleType = 'disc'
+            zdjWyr.style.display = 'none'
+            elOpisExtra.style.display = 'block'
             el.style.display = 'none'
             el2.style.display = "inline"
+
         }
+
 
     }
 
@@ -45,6 +57,14 @@ export default function InfoZimowe() {
         setPost(elementRef.current)
         const el = document.getElementsByClassName('button_normal')[0]
         const el2 = document.getElementsByClassName('button_wstecz')[0]
+        const elOpisExtra = document.getElementsByClassName('opisExtra')[0]
+        const zdjWyr = document.getElementsByClassName('zdjecieWyrozniajace')[0]
+        zdjWyr.style.display = 'inline'
+        elOpisExtra.style.display = 'none'
+        const dots = document.getElementsByTagName("ul")
+        for (let m = 0; m <= dots.length - 1; m++) {
+            dots[m].style.listStyleType = 'none'
+        }
         el.style.display = 'inline'
         el2.style.display = "none"
     }
@@ -58,13 +78,14 @@ export default function InfoZimowe() {
             </div>
             <div className='row'>
                 <div className='col'>
-                    <img alt={product.acf.zdj.id}
+                    <img className='zdjecieWyrozniajace' alt={product.acf.zdj.id}
                         src={product.acf.zdj.url}
                         width="500" height="300"
                     />
                 </div>
                 <div className='col opis'>
                     <p> {product.acf.opis}</p>
+                    <div className='opisExtra' dangerouslySetInnerHTML={{ __html: post[0].acf.opis_extra }} />
                     <MyButton znacznik="button_normal" opis='Więciej' onClick={() => handleClick(product.id)} />
                     <MyButton znacznik='button_wstecz' opis="Wstecz" onClick={() => handleClickBack()} />
                 </div>

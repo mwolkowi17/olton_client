@@ -89,6 +89,10 @@ li {
   color: rgba(15, 42, 67, 1);
 }
 
+.opisExtra {
+  display: none;
+}
+
 .button_wstecz {
   /* visibility: hidden; */
   display: none;
